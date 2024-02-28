@@ -1,0 +1,34 @@
+{%extends "base.html"%} 
+{% load static %}
+
+{% block title%}Rostyslav's Blog{%endblock%} 
+{% block css_files%}
+<link rel='stylesheet' href="{% static "blog/index.css"%}"> 
+<link rel='stylesheet' href="{% static "blog/post.css"%}">
+{%endblock%}
+
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="{% static  "blog/images/office.png" %}" alt="me" />
+        <h2>Rostyslav's Blog</h2>
+    </header>
+    <p>Hey, thats some kind of a description for this page</p>
+</section>
+
+<section id="latest-posts">
+    <h2>Latest Posts</h2>
+
+    <ul>
+        {%for post in posts%}
+            {% include "blog/includes/post.html" %}
+        {%endfor%}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I Do</h2>
+    <p>Love tech</p>
+    <p>Keep growing as a dev</p>
+</section>
+{%endblock%}
